@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: olympedia
+    database: basedosdados
+    schema: world_olympedia_olympics
+    tables:
+      - name: athlete_bio
+      - name: athlete_event_result
+      - name: game_medal_tally
+      - name: country
+      - name: result 
+      - name: game 
