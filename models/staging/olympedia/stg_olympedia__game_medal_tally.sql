@@ -6,11 +6,11 @@ source as (
 ),
 renamed as (
     select
-        edition_id as EditionId,
-        gold as GoldMedals,
-        silver as SilverMedals,
-        bronze as BronzeMedals,
-        total as TotalMedals
+        cast(edition_id as int) as EditionId,
+        cast(gold as int) as GoldMedals,
+        cast(silver as int) as SilverMedals,
+        cast(bronze as int) as BronzeMedals,
+        cast(total as int) as TotalMedals
     from source
 )
 

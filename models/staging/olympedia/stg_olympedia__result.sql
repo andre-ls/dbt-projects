@@ -6,7 +6,7 @@ source as (
 ),
 renamed as (
     select
-        result_id as ResultId,
+        cast(result_id as bigint) as ResultId,
         event_title as EventTitle,
         sport as Sport,
         result_date as ResultDate,

@@ -7,14 +7,14 @@ source as (
 
 renamed as (
     select
-        edition_id as EditionId,
+        cast(edition_id as int) as EditionId,
         edition as Edition,
         city as City,
         country_flag_url as CountryFlagUrl,
         country_noc as CountryNoc,
-        year as Year,
-        start_date as StartDate,
-        end_date as EndDate,
+        cast(year as int) as Year,
+        cast(start_date as date) as StartDate,
+        cast(end_date as date) as EndDate,
         competition_date as CompetitionDate,
         is_held  
     from source
