@@ -7,6 +7,7 @@ source as (
 renamed as (
     select
         cast(edition_id as int) as EditionId,
+        country_noc AS CountryNoc,
         cast(gold as int) as GoldMedals,
         cast(silver as int) as SilverMedals,
         cast(bronze as int) as BronzeMedals,
