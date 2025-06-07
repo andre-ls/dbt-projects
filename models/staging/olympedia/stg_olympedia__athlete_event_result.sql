@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with 
 source as (
     select * from {{ source('olympedia', 'athlete_event_result') }}
