@@ -16,7 +16,7 @@ renamed as (
         cast(start_date as date) as StartDate,
         cast(end_date as date) as EndDate,
         competition_date as CompetitionDate,
-        is_held  
+        is_held AS IsHeld
     from source
 )
 

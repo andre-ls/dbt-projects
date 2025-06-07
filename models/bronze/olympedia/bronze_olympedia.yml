@@ -1,0 +1,114 @@
+version: 2
+
+models:
+  - name: bronze_olympedia__athlete_bio
+    columns: 
+      - name: AthleteId
+        description: Unique Identifier of the Athlete.
+        tests:
+          - unique
+      - name: Name
+        description: Athlete's Name.
+      - name: Gender
+        description: Athlete's Gender.
+      - name: BirthDate
+        description: Athlete's Birth Date.
+      - name: Height
+        description: Athlete's Height in centimeters.
+      - name: Weight
+        description: Athlete's Weight in kilograms.
+      - name: Country
+        description: Athlete's Birth Country.
+  - name: bronze_olympedia__athlete_event_result
+    columns:
+      - name: EditionId
+        description: Unique Identifier of Olympic Games Edition.
+      - name: CountryNoc
+        description: National Olympic Committee Country Code.
+      - name: Sport
+        description: Name of the Sport.
+      - name: Event
+        description: Name of the Event.
+      - name: ResultId
+        description: Unique Identifier of the Result.
+      - name: AthleteId
+        description: Unique Identifier of the Athlete.
+      - name: Position
+        description: Final Position of the Athlete on the Event.
+      - name: Medal
+        description: Medal won by the Athlete (if apply).
+      - name: IsTeamSport
+        description: Indication if the Sport is a Team Sport.
+  - name: bronze_olympedia__country
+    columns:
+      - name: Noc
+        description: National Olympic Committee Country Code.
+        tests:
+          - unique
+      - name: Name
+        description: Country Name.
+  - name: bronze_olympedia__game_medal_tally
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+            combination_of_columns:
+              - EditionId
+              - CountryNoc
+    columns:
+      - name: EditionId
+        description: Unique Identifier of Olympic Games Edition.
+      - name: CountryNoc
+        description: National Olympic Committee Country Code.
+      - name: GoldMedals
+        description: Total of Gold Medals.
+      - name: SilverMedals
+        description: Total of Silver Medals.
+      - name: BronzeMedals
+        description: Total of Bronze Medals.
+      - name: TotalMedals
+        description: Total of Medals.
+  - name: bronze_olympedia__game
+    columns:
+      - name: EditionId
+        description: Unique Identifier of Olympic Games Edition.
+        tests:
+          - unique
+      - name: Edition
+        description: Olympic Games Edition Name.
+      - name: City
+        description: Host City.
+      - name: CountryFlagUrl
+        description: Url containing an Image of the Country Flag.
+      - name: CountryNoc
+        description: National Olympic Committee Country Code.
+      - name: Year
+        description: Year of the Olympic Games Edition.
+      - name: StartDate
+        description: Start Date of the Edition.
+      - name: EndDate
+        description: End Date of the Edition.
+      - name: CompetitionDate
+        description: Description of the Competition Period of the Edition.
+      - name: IsHeld
+        description: Description indicating whether the Edition was held or not.
+  - name: bronze_olympedia__result
+    columns:
+      - name: ResultId
+        description: Unique Identifier of the Result.
+        tests:
+          - unique
+      - name: EventTitle
+        description: Name of the Event.
+      - name: Sport
+        description: Name of the Sport.
+      - name: ResultDate
+        description: Date of the Result.
+      - name: ResultLocation
+        description: Location of the Result.
+      - name: ResultParticipants
+        description: Description of the Result's Participants.
+      - name: ResultFormat
+        description: Description of the Result's Format.
+      - name: ResultDetail
+        description: Description of extra details about the Result.
+      - name: ResultDescription
+        description: Detailed Description of the Result.
