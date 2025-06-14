@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: bronze_olympedia__athlete_bio
+    description: Table containing detailed information of each Athlete.
     columns: 
       - name: AthleteId
         description: Unique Identifier of the Athlete.
@@ -20,6 +21,7 @@ models:
       - name: Country
         description: Athlete's Birth Country.
   - name: bronze_olympedia__athlete_event_result
+    description: Table that relates each Athlete to a Olympic Games Edition participation and the Result achieved.
     columns:
       - name: EditionId
         description: Unique Identifier of Olympic Games Edition.
@@ -40,6 +42,7 @@ models:
       - name: IsTeamSport
         description: Indication if the Sport is a Team Sport.
   - name: bronze_olympedia__country
+    description: Table containing the Noc codes of each Country.
     columns:
       - name: Noc
         description: National Olympic Committee Country Code.
@@ -48,6 +51,7 @@ models:
       - name: Name
         description: Country Name.
   - name: bronze_olympedia__game_medal_tally
+    description: Table containing a summary of total medals achieved by each Country on each Edition.
     tests:
       - dbt_utils.unique_combination_of_columns:
             combination_of_columns:
@@ -67,6 +71,7 @@ models:
       - name: TotalMedals
         description: Total of Medals.
   - name: bronze_olympedia__game
+    description: Table containing information of each Olympic Games Edition.
     columns:
       - name: EditionId
         description: Unique Identifier of Olympic Games Edition.
@@ -91,6 +96,7 @@ models:
       - name: IsHeld
         description: Description indicating whether the Edition was held or not.
   - name: bronze_olympedia__result
+    description: Table containing detailed information about the Olympic Games Results for different Sports over the Editions.
     columns:
       - name: ResultId
         description: Unique Identifier of the Result.
