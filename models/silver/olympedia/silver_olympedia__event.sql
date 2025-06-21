@@ -3,13 +3,15 @@ with bronze as (
 ),
 result as (
     select * from {{ ref('bronze_olympedia__result') }}
+),
+events as (
+    select Sport, Event from bronze
+    union distinct
+    select Sport, EventTitle as Event from result
 )
 
 select distinct
-    {{ dbt_utils.generate_surrogate_key(['bronze.Sport','bronze.Event']) }} as EventId,
-    bronze.Sport,
-    bronze.Event,
-    bronze.IsTeamSport
-from bronze
-left join result
-    on bronze.ResultId = result.ResultId
+    {{ dbt_utils.generate_surrogate_key(['events.Sport','events.Event']) }} as EventId,
+    events.Sport,
+    events.Event
+from events
