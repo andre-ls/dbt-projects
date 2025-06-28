@@ -8,7 +8,7 @@ silver_event as (
     select * from {{ ref('silver_olympedia__event') }}
 )
 
-select 
+select distinct
     bronze.ResultId,
     event_result.EditionId,
     event_result.AthleteId,
