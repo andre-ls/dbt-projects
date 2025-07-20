@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: gold_olympedia__dim_athlete
+    description: Dimension table containing detailed information of each Athlete.
+    columns: 
+      - name: SKAthlete
+        description: Surrogate Key of the Athlete.
+        tests:
+          - unique
+      - name: AthleteId
+        description: Unique Identifier of the Athlete.
+      - name: Name
+        description: Athlete's Name.
+      - name: BirthDate
+        description: Athlete's Birth Date.
+      - name: Height
+        description: Athlete's Height in centimeters.
+      - name: Weight
+        description: Athlete's Weight in kilograms.
+      - name: Country
+        description: Athlete's Birth Country.
+  - name: gold_olympedia__dim_edition
+    description: Dimension table containing information of each Olympic Games Edition.
+    columns:
+      - name: SKEdition
+        description: Surrogate Key of Olympic Games Edition.
+        tests:
+          - unique
+      - name: EditionId
+        description: Unique Identifier of Olympic Games Edition.
+      - name: Edition
+        description: Olympic Games Edition Name.
+      - name: City
+        description: Host City.
+      - name: Country
+        description: Host Contry.
+      - name: CountryFlagUrl
+        description: Url containing an Image of the Country Flag.
+      - name: Year
+        description: Year of the Olympic Games Edition.
+      - name: StartDate
+        description: Start Date of the Edition.
+      - name: EndDate
+        description: End Date of the Edition.
+      - name: IsHeld
+        description: Description indicating whether the Edition was held or not.
+  - name: gold_olympedia__dim_event
+    description: Dimension table containing information of all events held in Olympic Games.
+    columns:
+      - name: SKEvent
+        description: Surrogate Key of the Event.
+        tests:
+          - unique
+      - name: EventId
+        description: Unique Identifier of Event.
+      - name: Sport
+        description: Name of the Sport.
+      - name: Event
+        description: Name of the Event.
+  - name: gold_olympedia__fact_result
+    description: Fact table that relates each Athlete to a Olympic Games Edition participation and the Result achieved.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+            combination_of_columns:
+              - ResultId
+              - SKEdition
+              - SKAthlete
+              - SKEvent
+              - Position
+    columns:
+      - name: ResultId
+        description: Unique Identifier of the Result.
+      - name: SKEdition
+        description: Surrogate Key of the Olympic Games Edition.
+      - name: SKAthlete
+        description: Surrogate Key of the Athlete.
+      - name: SKEvent
+        description: Surrogate Key Identifier of Event.
+      - name: Position
+        description: Final Position of the Athlete on the Event.
+      - name: Medal
+        description: Medal won by the Athlete (if apply).
