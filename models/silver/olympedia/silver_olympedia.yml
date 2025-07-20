@@ -53,8 +53,8 @@ models:
   - name: silver_olympedia__event
     description: Table containing information of all events held in Olympic Games.
     columns:
-      - name: EventKey
-        description: Unique Hash Key Identifier of Event.
+      - name: EventId
+        description: Unique Identifier of Event.
         tests:
           - unique
       - name: Sport

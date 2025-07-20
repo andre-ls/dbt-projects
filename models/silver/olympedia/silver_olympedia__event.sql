@@ -11,7 +11,8 @@ events as (
 )
 
 select distinct
-    {{ dbt_utils.generate_surrogate_key(['events.Sport','events.Event']) }} as EventKey,
+    --{{ dbt_utils.generate_surrogate_key(['events.Sport','events.Event']) }} as EventKey,
+    row_number() over () as EventId,
     events.Sport,
     events.Event
 from events

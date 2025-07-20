@@ -12,7 +12,7 @@ select distinct
     bronze.ResultId,
     event_result.EditionId,
     event_result.AthleteId,
-    silver_event.EventKey,
+    silver_event.EventId,
     event_result.Position,
     event_result.Medal,
     bronze.ResultDetail,
