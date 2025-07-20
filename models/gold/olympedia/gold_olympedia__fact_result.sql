@@ -19,9 +19,9 @@ select
     Position,
     Medal
 from silver s
-left join dim_athlete da
+inner join dim_athlete da
     on s.AthleteId = da.AthleteId
-left join dim_edition de
+inner join dim_edition de
     on s.EditionId = de.EditionId
-left join dim_event dv
+inner join dim_event dv
     on s.EventId = dv.EventId
