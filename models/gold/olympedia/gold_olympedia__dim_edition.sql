@@ -12,7 +12,7 @@ select
     EditionId,
     Edition,
     City,
-    country.Name,
+    country.Name as Country,
     CountryFlagUrl,
     Year,
     StartDate,
