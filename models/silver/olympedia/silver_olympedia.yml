@@ -69,7 +69,7 @@ models:
               - ResultId
               - EditionId
               - AthleteId
-              - EventKey
+              - EventId
               - Position
     columns:
       - name: ResultId
@@ -78,8 +78,8 @@ models:
         description: Unique Identifier of Olympic Games Edition.
       - name: AthleteId
         description: Unique Identifier of the Athlete.
-      - name: EventKey
-        description: Unique Hash Key Identifier of Event.
+      - name: EventId
+        description: Unique Identifier of the Event.
       - name: Position
         description: Final Position of the Athlete on the Event.
       - name: Medal
