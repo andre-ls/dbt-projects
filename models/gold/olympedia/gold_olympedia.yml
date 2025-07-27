@@ -1,13 +1,15 @@
 version: 2
 
 models:
-  - name: silver_olympedia__athlete
-    description: Table containing detailed information of each Athlete.
+  - name: gold_olympedia__dim_athlete
+    description: Dimension table containing detailed information of each Athlete.
     columns: 
-      - name: AthleteId
-        description: Unique Identifier of the Athlete.
+      - name: SKAthlete
+        description: Surrogate Key of the Athlete.
         tests:
           - unique
+      - name: AthleteId
+        description: Unique Identifier of the Athlete.
       - name: Name
         description: Athlete's Name.
       - name: BirthDate
@@ -18,28 +20,21 @@ models:
         description: Athlete's Weight in kilograms.
       - name: Country
         description: Athlete's Birth Country.
-  - name: silver_olympedia__country
-    description: Table containing the Noc codes of each Country.
+  - name: gold_olympedia__dim_edition
+    description: Dimension table containing information of each Olympic Games Edition.
     columns:
-      - name: Noc
-        description: National Olympic Committee Country Code.
+      - name: SKEdition
+        description: Surrogate Key of Olympic Games Edition.
         tests:
           - unique
-      - name: Name
-        description: Country Name.
-  - name: silver_olympedia__edition
-    description: Table containing information of each Olympic Games Edition.
-    columns:
       - name: EditionId
         description: Unique Identifier of Olympic Games Edition.
-        tests:
-          - unique
       - name: Edition
         description: Olympic Games Edition Name.
       - name: City
         description: Host City.
-      - name: CountryNoc
-        description: National Olympic Committee Country Code.
+      - name: Country
+        description: Host Contry.
       - name: CountryFlagUrl
         description: Url containing an Image of the Country Flag.
       - name: Year
@@ -50,41 +45,39 @@ models:
         description: End Date of the Edition.
       - name: IsHeld
         description: Description indicating whether the Edition was held or not.
-  - name: silver_olympedia__event
-    description: Table containing information of all events held in Olympic Games.
+  - name: gold_olympedia__dim_event
+    description: Dimension table containing information of all events held in Olympic Games.
     columns:
-      - name: EventId
-        description: Unique Identifier of Event.
+      - name: SKEvent
+        description: Surrogate Key of the Event.
         tests:
           - unique
+      - name: EventId
+        description: Unique Identifier of Event.
       - name: Sport
         description: Name of the Sport.
       - name: Event
         description: Name of the Event.
-  - name: silver_olympedia__result
-    description: Table that relates each Athlete to a Olympic Games Edition participation and the Result achieved.
+  - name: gold_olympedia__fact_result
+    description: Fact table that relates each Athlete to a Olympic Games Edition participation and the Result achieved.
     tests:
       - dbt_utils.unique_combination_of_columns:
             combination_of_columns:
               - ResultId
-              - EditionId
-              - AthleteId
-              - EventId
+              - SKEdition
+              - SKAthlete
+              - SKEvent
               - Position
     columns:
       - name: ResultId
         description: Unique Identifier of the Result.
-      - name: EditionId
-        description: Unique Identifier of Olympic Games Edition.
-      - name: AthleteId
-        description: Unique Identifier of the Athlete.
-      - name: EventId
-        description: Unique Identifier of the Event.
+      - name: SKEdition
+        description: Surrogate Key of the Olympic Games Edition.
+      - name: SKAthlete
+        description: Surrogate Key of the Athlete.
+      - name: SKEvent
+        description: Surrogate Key Identifier of Event.
       - name: Position
         description: Final Position of the Athlete on the Event.
       - name: Medal
         description: Medal won by the Athlete (if apply).
-      - name: ResultDetail
-        description: Description of extra details about the Result.
-      - name: ResultDescription
-        description: Detailed Description of the Result.
