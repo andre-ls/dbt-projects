@@ -13,9 +13,9 @@ select
     a.Name, 
     a.Gender,
     coalesce(c.Name,a.Country) as Country,
-    countif(r.Medal = 'Bronze') as Bronze,
-    countif(r.Medal = 'Silver') as Silver,
-    countif(r.Medal = 'Gold')   as Gold
+    countif(r.Medal = 'Bronze') as BronzeMedals,
+    countif(r.Medal = 'Silver') as SilverMedals,
+    countif(r.Medal = 'Gold')   as GoldMedals
 from athlete a
 left join country c 
     on a.Country = c.Noc
