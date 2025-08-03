@@ -23,9 +23,9 @@ country_medals as (
 
 select 
     Country,
-    countif(Medal = 'Bronze') as Bronze,
-    countif(Medal = 'Silver') as Silver,
-    countif(Medal = 'Gold')   as Gold
+    countif(Medal = 'Bronze') as BronzeMedals,
+    countif(Medal = 'Silver') as SilverMedals,
+    countif(Medal = 'Gold')   as GoldMedals
 from country_medals
 where Country is not null
 group by Country
