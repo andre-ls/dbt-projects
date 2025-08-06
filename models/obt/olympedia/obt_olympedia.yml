@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: obt_olympedia__athlete_medals
+    description: Aggregation Table containing the total medals won by each athlete. 
+    columns: 
+      - name: AthleteId
+        description: Unique Identifier of the Athlete.
+      - name: Name
+        description: Athlete's Name.
+      - name: Gender
+        description: Athlete's Gender.
+      - name: Country
+        description: Athlete's Country.
+      - name: BronzeMedals
+        description: Total Bronze Medals won by the Athlete.
+      - name: SilverMedals
+        description: Total Silver Medals won by the Athlete.
+      - name: GoldMedals
+        description: Total Gold Medals won by the Athlete.
+  - name: obt_olympedia__country_medals
+    description: Aggregation Table containing the total medals won by each Country in all Olympic Games Editions.
+    columns:
+      - name: Country
+        description: Country Name.
+      - name: BronzeMedals
+        description: Total Bronze Medal titles won by the Country.
+      - name: SilverMedals
+        description: Total Silver Medal titles won by the Country.
+      - name: GoldMedals
+        description: Total Gold Medal titles won by the Country.
+  - name: obt_olympedia__editions
+    description: Aggregation Table containing some metrics about each Olympic Games Edition.
+    columns:
+      - name: EditionId
+        description: Unique Identifier of Olympic Games Edition.
+      - name: Edition
+        description: Olympic Games Edition Name.
+      - name: City
+        description: Host City.
+      - name: Country
+        description: Host Contry.
+      - name: Year
+        description: Year of the Olympic Games Edition.
+      - name: TotalEventsHeld
+        description: Total Number of Events held on the Edition.
+      - name: TotalBronzeMedals
+        description: Total Bronze Medals distributed on the Edition. (This number includes all medals distributed in Team Sports.)
+      - name: TotalSilverMedals
+        description: Total Silver Medals distributed on the Edition. (This number includes all medals distributed in Team Sports.)
+      - name: TotalGoldMedals
+        description: Total Gold Medals distributed on the Edition. (This number includes all medals distributed in Team Sports.)
+      - name: TotalMaleAthletes
+        description: Total Male Athletes participating in the Edition.
+      - name: TotalFemaleAthletes
+        description: Total Female Athletes participating in the Edition.
+      - name: TotalAthletes
+        description: Total Athletes participating in the Edition.
+  - name: obt_olympedia__events
+    description: Aggregation Table containing total medals own by each Country on each Sport Events.
+    columns:
+      - name: EventId
+        description: Unique Identifier of Event.
+      - name: Sport
+        description: Name of the Sport.
+      - name: Event
+        description: Name of the Event.
+      - name: Country
+        description: Contry Name.
+      - name: BronzeMedals
+        description: Total Bronze Medal titles won by the Country.
+      - name: SilverMedals
+        description: Total Silver Medal titles won by the Country.
+      - name: GoldMedals
+        description: Total Gold Medal titles won by the Country.
