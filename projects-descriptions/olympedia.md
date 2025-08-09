@@ -14,6 +14,8 @@ Como os dados da plataforma são disponibilizados publicamente via BigQuery, que
 
 ## Arquitetura
 
+<img src="./images/olympedia_lineage.png" alt="drawing" width="800"/>
+
 O projeto foi estruturado seguindo uma versão customizada da Arquitetura de Medalhão com 4 camadas, descritas abaixo.
 
 ### Bronze 
