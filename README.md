@@ -20,4 +20,5 @@ Todos estes projetos são montados usando o BigQuery como plataforma de processa
 
 Estes são os projetos atualmente armazenados neste repositório:
 
-- Olympedia: Contém diversos dados sobre as Olímpiadas, suas edições, resultados e atletas participantes.
+
+- [Olympedia](./projects-descriptions/olympedia.md): Contém diversos dados sobre as Olímpiadas, suas edições, resultados e atletas participantes.
