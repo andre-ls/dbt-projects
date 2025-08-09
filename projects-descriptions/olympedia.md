@@ -53,4 +53,7 @@ A camada de Obt é uma camada adicional e complementar à camada Gold visando ap
 
 Utilizando as funcionalidades disponíveis pelo DBT, uma documentação foi gerada para todas as camadas deste projeto, contendo descrições informativas para cada tabela e cada um de seus campos.
 
+<img src="./images/olympedia_docs.png" alt="drawing" width="800"/>
+
 Além disso, para as camadas Bronze, Silver e Gold, diversos testes foram adicionados, principalmente relacionados a checagem de unicidade de campos de identificação ou combinação de campos. 
+
