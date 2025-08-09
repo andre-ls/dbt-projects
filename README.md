@@ -14,11 +14,13 @@ Além destas camadas principais, camadas adicionais, com modelagens extras que p
 
 ## Infraestrutura
 
-Todos estes projetos são montados usando o BigQuery como plataforma de processamento e armazenamento sob a qual o DBT opera. 
+Todos os projetos são montados usando o BigQuery como plataforma de processamento e armazenamento sob a qual o DBT opera, cuidando da organização, documentação e testes dos dados resultantes, além da orquestração de todo o processamento de dados. 
+<p align="center">
+  <img src="./projects-descriptions/images/dbt-architecture.png" alt="drawing" width="500"/>
+</p>
 
 ## Projetos
 
 Estes são os projetos atualmente armazenados neste repositório:
-
 
 - [Olympedia](./projects-descriptions/olympedia.md): Contém diversos dados sobre as Olímpiadas, suas edições, resultados e atletas participantes.
