@@ -2,7 +2,6 @@
 
 Esse repositório contém alguns projetos pessoais de processamento de dados utilizando como plataforma principal de processamento o DBT. O objetivo principal aqui é o aprendizado, logo os projetos tendem a ser simples e não envolver volumes excessivos de dados, mas compartilhando-os espero poder ajudar alguém que também esteja aprendendo sobre algo similar. 
 
-
 ## Arquitetura
 
 A arquitetura de todos os projetos armazenados aqui segue o padrão da Arquitetura Medalhão, com suas 3 camadas principais:
